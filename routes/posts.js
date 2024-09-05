@@ -7,7 +7,11 @@ const error = require("../utilities/error");
 router
   .route("/")
   .get((req, res) => {
-    if (req.query.userId) res.redirect(`/api/users/${req.query.userId}/posts?api-key=${req.key}`);
+    if (req.query.userId) {
+      console.log("Redirecting to /api/users/:userId/posts");
+      res.redirect(`/api/users/${req.query.userId}/posts?api-key=${req.key}`);
+      return;
+    }
     const links = [
       {
         href: "posts/:id",
