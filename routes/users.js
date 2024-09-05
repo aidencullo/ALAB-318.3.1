@@ -3,6 +3,7 @@ const router = express.Router();
 
 const users = require("../data/users");
 const posts = require("../data/posts");
+const comments = require("../data/comments");
 const error = require("../utilities/error");
 
 router
@@ -39,6 +40,7 @@ router
 router
   .route("/:id")
   .get((req, res, next) => {
+
     const user = users.find((u) => u.id == req.params.id);
 
     const links = [
@@ -85,19 +87,22 @@ router
 router
   .route("/:id/posts")
   .get((req, res, next) => {
-    const userPosts = posts.find((u) => u.id == req.params.id);
+    const userPosts = posts.filter((post) => post.userId == req.params.id);
     res.json(userPosts);
   })
 
 router
   .route("/:id/comments")
   .get((req, res, next) => {
-    const queryParams = new URLSearchParams({
-      postId: req.params.id,
-      ...req.query,
-      "api-key": req.key,
-    });
-    res.redirect(`/api/comments?${queryParams}`);
+    const userComments = comments.filter((comment) => comment.userId == req.params.id);
+    res.json(userComments);
+  })
+
+router
+  .route("/:id/posts/:postId/comments")
+  .get((req, res, next) => {
+    const userComments = comments.filter((comment) => comment.userId == req.params.id && comment.postId == req.params.postId);
+    res.json(userComments);
   })
 
 module.exports = router;

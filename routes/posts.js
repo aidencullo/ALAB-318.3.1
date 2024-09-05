@@ -7,10 +7,6 @@ const error = require("../utilities/error");
 router
   .route("/")
   .get((req, res) => {
-    if (req.query.userId) {
-      res.redirect(`/api/users/${req.query.userId}/posts?api-key=${req.key}`);
-      return;
-    }
     const links = [
       {
         href: "posts/:id",
@@ -81,15 +77,12 @@ router
     else next();
   });
 
+
 router
   .route("/:id/comments")
   .get((req, res, next) => {
-    const queryParams = new URLSearchParams({
-      postId: req.params.id,
-      ...req.query,
-      "api-key": req.key,
-    });
-    res.redirect(`/api/comments?${queryParams}`);
+    const userComments = comments.find((comment) => comment.postId == req.params.id);
+    res.json(userComments);
   })
 
 module.exports = router;

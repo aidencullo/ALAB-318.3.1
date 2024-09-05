@@ -51,6 +51,35 @@ app.use("/api", function (req, res, next) {
   next();
 });
 
+app.use("/api", function (req, res, next) {
+
+  let newUrl = '';
+  let urlParts = req.url.split('?');
+  let baseUrl = urlParts[0]; // The base URL without query params
+  let queryParams = new URLSearchParams(urlParts[1]); // The query parameters
+
+  // Extract the postId parameter
+  const postId = queryParams.get('postId');
+  const userId = queryParams.get('userId');
+  const apiKey = queryParams.get('api-key');
+  const newQueryParams = new URLSearchParams({
+    'api-key': apiKey
+  });
+
+  // If postId is found, construct the new URL
+  if (userId) {
+    newUrl += `/users/${userId}`;
+  }
+  if (postId) {
+    newUrl += `/posts/${postId}`;
+  }
+
+  newUrl += baseUrl;
+  req.url = newUrl;
+  console.log(`New URL: ${newUrl}`);
+  next();
+});
+
 // Use our Routes
 app.use("/api/users", users);
 app.use("/api/posts", posts);
