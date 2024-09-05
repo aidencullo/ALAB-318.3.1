@@ -89,4 +89,10 @@ router
     res.json(userPosts);
   })
 
+router
+  .route("/:id/comments")
+  .get((req, res, next) => {
+    res.redirect(`/api/comments?api-key=${req.key}&userId=${req.params.id}`);
+  })
+
 module.exports = router;

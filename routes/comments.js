@@ -30,7 +30,10 @@ router
       },
     ];
 
-    res.json({ updatedComments, links });
+    res.json({
+      comments: updatedComments,
+      links,
+    });
   })
   .post((req, res, next) => {
     if (req.body.userId && req.body.postId && req.body.body) {

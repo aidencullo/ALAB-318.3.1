@@ -81,7 +81,6 @@ router
     else next();
   });
 
-
 router
   .route("/:id/comments")
   .get((req, res, next) => {
@@ -89,4 +88,3 @@ router
   })
 
 module.exports = router;
-
