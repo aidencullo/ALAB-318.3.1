@@ -32,7 +32,7 @@ router
       };
 
       comments.push(comment);
-      res.json(comments[comments.length - 1]);
+      res.status(201).json(comment);
     } else next(error(400, "Insufficient Data"));
   });
 
