@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const posts = require("../data/posts");
+const comments = require("../data/comments");
 const error = require("../utilities/error");
 
 router
@@ -81,7 +82,7 @@ router
 router
   .route("/:id/comments")
   .get((req, res, next) => {
-    const userComments = comments.find((comment) => comment.postId == req.params.id);
+    const userComments = comments.filter((comment) => comment.postId == req.params.id);
     res.json(userComments);
   })
 
