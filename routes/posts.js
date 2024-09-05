@@ -8,7 +8,6 @@ router
   .route("/")
   .get((req, res) => {
     if (req.query.userId) {
-      console.log("Redirecting to /api/users/:userId/posts");
       res.redirect(`/api/users/${req.query.userId}/posts?api-key=${req.key}`);
       return;
     }
@@ -81,5 +80,12 @@ router
     if (post) res.json(post);
     else next();
   });
+
+
+router
+  .route("/:id/comments")
+  .get((req, res, next) => {
+    res.redirect(`/api/comments?api-key=${req.key}&postId=${req.params.id}`);
+  })
 
 module.exports = router;
