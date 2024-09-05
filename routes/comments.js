@@ -23,12 +23,12 @@ router
     res.json({ comments, links });
   })
   .post((req, res, next) => {
-    if (req.body.userId && req.body.title && req.body.content) {
+    if (req.body.userId && req.body.postId && req.body.body) {
       const comment = {
         id: comments[comments.length - 1].id + 1,
         userId: req.body.userId,
-        title: req.body.title,
-        content: req.body.content,
+        postId: req.body.postId,
+        body: req.body.body,
       };
 
       comments.push(comment);
