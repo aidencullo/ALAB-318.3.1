@@ -7,9 +7,20 @@ const error = require("../utilities/error");
 router
   .route("/")
   .get((req, res) => {
+    let updatedComments = comments;
     if (req.query.userId) {
-      const userComments = comments.filter(comment => comment.userId = req.query.userId)
-      res.json(userComments);
+      if (isNaN(req.query.userId)) {
+	return res.status(400).json({ error: "Invalid userId" });
+      }
+      const userId = parseInt(req.query.userId);
+      updatedComments = updatedComments.filter(comment => comment.userId === userId)
+    }
+    if (req.query.postId) {
+      if (isNaN(req.query.postId)) {
+	return res.status(400).json({ error: "Invalid postId" });
+      }
+      const postId = parseInt(req.query.postId);
+      updatedComments = updatedComments.filter(comment => comment.postId === postId)
     }
     const links = [
       {
@@ -19,7 +30,7 @@ router
       },
     ];
 
-    res.json({ comments, links });
+    res.json({ updatedComments, links });
   })
   .post((req, res, next) => {
     if (req.body.userId && req.body.postId && req.body.body) {

@@ -65,4 +65,5 @@ BAD_USER_COMMENT='{"postId": 1, "body": "This is a test comment"}'
 send_post_request "/comments" "$BAD_USER_COMMENT"
 
 # GET /comments?userId=<VALUE> -> 200 OK
-send_get_request "/comments" "&userId=1"
+send_get_request "/comments"
+send_get_request "/comments" "&userId=1&postId=1"
