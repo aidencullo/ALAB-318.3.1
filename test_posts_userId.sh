@@ -11,7 +11,7 @@ USER_ID="1"  # Replace with the actual user ID you want to test
 send_get_request() {
   local user_id="$1"
   echo "Testing GET /api/posts?userId=$user_id"
-  curl -i -X GET "$BASE_URL?userId=$user_id$API_KEY"
+  curl -L -i -X GET "$BASE_URL?userId=$user_id$API_KEY"
   echo
 }
 
