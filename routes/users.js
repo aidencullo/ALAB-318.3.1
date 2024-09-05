@@ -92,7 +92,12 @@ router
 router
   .route("/:id/comments")
   .get((req, res, next) => {
-    res.redirect(`/api/comments?api-key=${req.key}&userId=${req.params.id}`);
+    const queryParams = new URLSearchParams({
+      postId: req.params.id,
+      ...req.query,
+      "api-key": req.key,
+    });
+    res.redirect(`/api/comments?${queryParams}`);
   })
 
 module.exports = router;
