@@ -8,9 +8,8 @@ router
   .route("/")
   .get((req, res) => {
     if (req.query.userId) {
-      console.log("Redirecting to /api/users/:userId/comments");
-      res.redirect(`/api/users/${req.query.userId}/comments?api-key=${req.key}`);
-      return;
+      const userComments = comments.filter(comment => comment.userId = req.query.userId)
+      res.json(userComments);
     }
     const links = [
       {

@@ -7,8 +7,9 @@ API_KEY="?api-key=perscholas"
 # Function to send GET request
 send_get_request() {
   local endpoint="$1"
+  local queryParam="$2"
   echo "Testing GET $endpoint"
-  curl -i -X GET "$BASE_URL$endpoint$API_KEY"
+  curl -i -X GET "$BASE_URL$endpoint$API_KEY$queryParam"
   echo
 }
 
@@ -62,3 +63,6 @@ send_get_request "/comments"
 # Fail Test POST /api/comments -> 400 Bad Request
 BAD_USER_COMMENT='{"postId": 1, "body": "This is a test comment"}'
 send_post_request "/comments" "$BAD_USER_COMMENT"
+
+# GET /comments?userId=<VALUE> -> 200 OK
+send_get_request "/comments" "&userId=1"
