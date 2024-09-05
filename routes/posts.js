@@ -7,6 +7,7 @@ const error = require("../utilities/error");
 router
   .route("/")
   .get((req, res) => {
+    if (req.query.userId) res.redirect(`/api/users/${req.query.userId}/posts?api-key=${req.key}`);
     const links = [
       {
         href: "posts/:id",
