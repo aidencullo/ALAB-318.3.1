@@ -3,15 +3,10 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.use((req, res, next) => {
-  console.log("Time: ", Date.now());
-  next();
-});
+const { logTime, logMethod } = require("./middleware");
 
-app.use((req, res, next) => {
-  console.log("Request Type: ", req.method);
-  next();
-});
+app.use(logTime);
+app.use(logMethod);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
