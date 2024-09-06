@@ -7,6 +7,11 @@ router
   .route('/')
   .get((req, res) => {
     res.json(books);
+  })
+  .post((req, res) => {
+    const newBook = req.body;
+    books.push(newBook);
+    res.json(newBook);
   });
 
 module.exports = router;

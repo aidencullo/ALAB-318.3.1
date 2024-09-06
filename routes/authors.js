@@ -7,6 +7,11 @@ router
   .route('/')
   .get((req, res) => {
     res.json(authors);
+  })
+  .post((req, res) => {
+    const newAuthor = req.body;
+    authors.push(newAuthor);
+    res.json(newAuthor);
   });
 
 module.exports = router;

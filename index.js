@@ -10,6 +10,8 @@ const authors = require("./routes/authors");
 const books = require("./routes/books");
 const publishers = require("./routes/publishers");
 
+app.use(express.json());
+
 app.use(logger);
 
 app.use('/authors', authors);
