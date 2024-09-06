@@ -1,7 +1,7 @@
 *** DONE Create and use at least two pieces of custom middleware.	5%
 *** DONE Create and use error-handling middleware.	5%
 *** TODO "Use at least three different data categories (e.g., users, posts, or comments)."	5%
-*** TODO Utilize reasonable data structuring practices.	5%
+*** DONE Utilize reasonable data structuring practices.	5%
 *** TODO Create GET routes for all data that should be exposed to the client.	5%
 *** TODO "Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request."	5%
 *** TODO "Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request."	5%
