@@ -1,5 +1,5 @@
 *** DONE Create and use at least two pieces of custom middleware.	5%
-*** TODO Create and use error-handling middleware.	5%
+*** DONE Create and use error-handling middleware.	5%
 *** TODO "Use at least three different data categories (e.g., users, posts, or comments)."	5%
 *** TODO Utilize reasonable data structuring practices.	5%
 *** TODO Create GET routes for all data that should be exposed to the client.	5%
