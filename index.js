@@ -3,16 +3,13 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-const {
-  logTime,
-  logMethod,
-  errorHandler,
-} = require("./middleware");
+const logger = require("./middleware/log");
+const errorHandler = require("./utils/error");
 
-app.use(logTime);
-app.use(logMethod);
+app.use(logger);
 
 app.get("/", (req, res, next) => {
+  l
   res.send("Hello World!");
 });
 
