@@ -1,9 +1,10 @@
+* Required Objectives
 *** DONE Create and use at least two pieces of custom middleware.	5%
 *** DONE Create and use error-handling middleware.	5%
-*** TODO "Use at least three different data categories (e.g., users, posts, or comments)."	5%
+*** DONE "Use at least three different data categories (e.g., users, posts, or comments)."	5%
 *** DONE Utilize reasonable data structuring practices.	5%
 *** DONE Create GET routes for all data that should be exposed to the client.	5%
-*** TODO "Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request."	5%
+*** DONE "Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request."	5%
 *** TODO "Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request."	5%
 *** TODO "Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request."	5%
 *** TODO "Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters.
@@ -21,10 +22,18 @@
 *** DONE Include a README file that contains a description of your application.	2%
 *** TODO "Level of effort displayed in creativity, presentation, and user experience."	5%
 
-*** TODO Bonus Objectives
+* Bonus Objectives
 *** TODO The objectives listed here are not required. Ensure that your application meets the requirements above before attempting to further expand your features.
 *** TODO These bonus objectives cannot increase your overall score above 100%. Successful completion of these objectives can, however, make up for lost points above. Ensure your application works as outlined by the requirements above before attempting these objectives, time permitting.
 *** TODO "Include a practical usage of regular expressions within route paths.
 *** TODO Note: A forced, arbitrary usage of this technique will not earn you any bonus credit. This must be practical and sensible in order to be considered for credit."	+1%	
 *** TODO "Research and effectively use at least one third-party Node package for practical, sensible purposes.
 *** TODO This cannot be a package that has been used in examples and lesson materials thus far. Step outside the box and be creative! "	+1%	
+
+* Personal Objectives
+*** TODO Converty to TypeScript
+*** TODO Use a database
+*** TODO Use controllers
+*** TODO Create admin routes
+*** TODO Create a login system
+*** TODO xml/json/text response types
