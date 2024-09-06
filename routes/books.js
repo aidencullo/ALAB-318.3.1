@@ -14,6 +14,17 @@ router
     checkBook(newBook);
     books.push(newBook);
     res.json(newBook);
-  });
+  })
+
+router
+  .route('/:id')
+  .get((req, res) => {
+    const book = books.find(book => book.id == req.params.id)
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+    res.json(book);
+  })
+
 
 module.exports = router;

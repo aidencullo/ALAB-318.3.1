@@ -14,6 +14,17 @@ router
     checkAuthor(newAuthor);
     authors.push(newAuthor);
     res.json(newAuthor);
-  });
+  })
+
+router
+  .route('/:id')
+  .get((req, res) => {
+    const author = authors.find(author => author.id == req.params.id)
+    if (!author) {
+      return res.status(404).send('Author not found');
+    }
+    res.json(author);
+  })
+
 
 module.exports = router;
