@@ -9,7 +9,6 @@ const errorHandler = require("./utils/error");
 app.use(logger);
 
 app.get("/", (req, res, next) => {
-  l
   res.send("Hello World!");
 });
 
