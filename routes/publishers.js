@@ -4,6 +4,11 @@ const router = express.Router();
 const publishers = require('../data/publishers');
 const { checkPublisher } = require('../utils/publisher');
 
+const getNextId = () => {
+  const maxId = publishers.reduce((max, publisher) => Math.max(max, publisher.id), 0);
+  return maxId + 1;
+};
+
 router
   .route('/')
   .get((req, res) => {
@@ -12,19 +17,33 @@ router
   .post((req, res) => {
     const newPublisher = req.body;
     checkPublisher(newPublisher);
+    newPublisher.id = getNextId();
     publishers.push(newPublisher);
-    res.json(newPublisher);
-  })
+    res.status(201).json(newPublisher);
+  });
 
 router
   .route('/:id')
   .get((req, res) => {
-    const publisher = publishers.find(publisher => publisher.id == req.params.id)
+    const id = parseInt(req.params.id, 10);
+    const publisher = publishers.find(publisher => publisher.id === id);
+
     if (!publisher) {
       return res.status(404).send('Publisher not found');
     }
     res.json(publisher);
   })
+  .put((req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const publisher = publishers.find(publisher => publisher.id === id);
 
+    if (!publisher) {
+      return res.status(404).send('Publisher not found');
+    }
+
+    checkPublisher(req.body);
+    Object.assign(publisher, req.body);
+    res.json(publisher);
+  });
 
 module.exports = router;
