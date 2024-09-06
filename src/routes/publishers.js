@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const publishers = require('../data/publishers');
+const publishers = [];
 const { checkPublisher } = require('../utils/publisher');
 
 const getNextId = () => {

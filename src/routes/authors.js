@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const authors = require('../data/authors');
+const authors = [];
 const { checkAuthor } = require('../utils/author');
 
 const getNextId = () => {

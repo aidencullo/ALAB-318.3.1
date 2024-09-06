@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const books = require('../data/books');
+const books = [];
 const { checkBook } = require('../utils/book');
 
 const getNextId = () => {
