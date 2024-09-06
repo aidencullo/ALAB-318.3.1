@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const authors = require('../data/authors.js');
+const authors = require('../data/authors');
+const { checkAuthor } = require('../utils/author');
 
 router
   .route('/')
@@ -10,6 +11,7 @@ router
   })
   .post((req, res) => {
     const newAuthor = req.body;
+    checkAuthor(newAuthor);
     authors.push(newAuthor);
     res.json(newAuthor);
   });

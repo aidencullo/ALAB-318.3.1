@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const publishers = require('../data/publishers.js');
+const publishers = require('../data/publishers');
+const { checkPublisher } = require('../utils/publisher');
 
 router
   .route('/')
@@ -10,6 +11,7 @@ router
   })
   .post((req, res) => {
     const newPublisher = req.body;
+    checkPublisher(newPublisher);
     publishers.push(newPublisher);
     res.json(newPublisher);
   });
