@@ -1,4 +1,4 @@
-* Required Objectives
+* Required Objectives [40%]
 *** DONE Create and use at least two pieces of custom middleware.	5%
 *** DONE Create and use error-handling middleware.	5%
 *** DONE "Use at least three different data categories (e.g., users, posts, or comments)."	5%
@@ -8,7 +8,6 @@
 *** DONE "Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request."	5%
 *** DONE "Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request."	5%
 *** TODO "Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters.
-*** TODO Note: DO NOT use API keys; this makes it more difficult for instructors to grade finished projects efficiently."	5%
 *** TODO "Utilize route parameters, where appropriate."	5%
 *** TODO Adhere to the guiding principles of REST.	10%
 *** TODO "Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine.
