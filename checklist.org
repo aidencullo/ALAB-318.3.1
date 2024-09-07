@@ -1,4 +1,4 @@
-* Required Objectives [76%]
+* Required Objectives [89%]
 *** DONE Create and use at least two pieces of custom middleware.	5%
 *** DONE Create and use error-handling middleware.	5%
 *** DONE "Use at least three different data categories (e.g., users, posts, or comments)."	5%
@@ -10,7 +10,7 @@
 *** DONE "Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters.
 *** DONE "Utilize route parameters, where appropriate."	5%
 *** DONE Adhere to the guiding principles of REST.	10%
-*** TODO "Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine.
+*** DONE "Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine.
 *** TODO "Use simple CSS to style the rendered views.
 *** TODO Include a form within a rendered view that allows for interaction with your RESTful API.	3%
 *** DONE Utilize reasonable code organization practices.	5%

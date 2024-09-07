@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Books List
+  body
+    h1 Books List
+
+    // Display the number of books
+    p Number of books: #{books.length}
+
+    // Display the list of books
+    ul
+      each book in books
+        li #{book.title} - #{book.author} - Published on: #{book.publishedDate}
+

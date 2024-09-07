@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const books = [];
+const books = require('../data/books');
 const { checkBook } = require('../utils/book');
 
 const getNextId = () => {
@@ -18,7 +18,7 @@ router
       const filteredBooks = books.filter(book => book.genre.toLowerCase() === genre);
       returnBooks = filteredBooks;
     }
-    return res.json(returnBooks);
+    return res.render('books', { books: returnBooks });
   })
   .post((req, res) => {
     const newBook = req.body;

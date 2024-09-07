@@ -10,6 +10,8 @@ const app = express();
 
 app.use(express.json());
 
+app.set("view engine", "pug");
+
 app.use(logger);
 
 app.use('/authors', authors);
