@@ -53,7 +53,7 @@ router
       return res.status(404).send('Book not found');
     }
 
-    Object.assign(book, {...book, ...req.body});
+    Object.assign(book, req.body);
     checkBook(book);
     res.json(book);
   });
