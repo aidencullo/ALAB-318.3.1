@@ -1,4 +1,4 @@
-* Required Objectives [47%]
+* Required Objectives [76%]
 *** DONE Create and use at least two pieces of custom middleware.	5%
 *** DONE Create and use error-handling middleware.	5%
 *** DONE "Use at least three different data categories (e.g., users, posts, or comments)."	5%
@@ -8,33 +8,26 @@
 *** DONE "Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request."	5%
 *** DONE "Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request."	5%
 *** DONE "Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters.
-*** TODO "Utilize route parameters, where appropriate."	5%
-*** TODO Adhere to the guiding principles of REST.	10%
+*** DONE "Utilize route parameters, where appropriate."	5%
+*** DONE Adhere to the guiding principles of REST.	10%
 *** TODO "Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine.
-*** TODO If you are stuck on how to approach this, think about ways you could render the current state of your API's data for easy viewing."	8%
 *** TODO "Use simple CSS to style the rendered views.
-*** TODO Note: This is not a test of design; it is a test of serving static files using Express. The CSS can be very simple."	2%
 *** TODO Include a form within a rendered view that allows for interaction with your RESTful API.	3%
-*** TODO Utilize reasonable code organization practices.	5%
-*** TODO "Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit)."	10%
-*** TODO Commit frequently to the git repository.	5%
+*** DONE Utilize reasonable code organization practices.	5%
+*** DONE "Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit)."	10%
+*** DONE Commit frequently to the git repository.	5%
 *** DONE Include a README file that contains a description of your application.	2%
-*** TODO "Level of effort displayed in creativity, presentation, and user experience."	5%
+*** DONE "Level of effort displayed in creativity, presentation, and user experience."	5%
 
-* Bonus Objectives
-*** TODO The objectives listed here are not required. Ensure that your application meets the requirements above before attempting to further expand your features.
-*** TODO These bonus objectives cannot increase your overall score above 100%. Successful completion of these objectives can, however, make up for lost points above. Ensure your application works as outlined by the requirements above before attempting these objectives, time permitting.
+* Bonus Objectives [0%]
 *** TODO "Include a practical usage of regular expressions within route paths.
-*** TODO Note: A forced, arbitrary usage of this technique will not earn you any bonus credit. This must be practical and sensible in order to be considered for credit."	+1%	
 *** TODO "Research and effectively use at least one third-party Node package for practical, sensible purposes.
-*** TODO This cannot be a package that has been used in examples and lesson materials thus far. Step outside the box and be creative! "	+1%	
 
-* Personal Objectives
+* Personal Objectives [0%]
 *** TODO Converty to TypeScript
 *** TODO Use a database
 *** TODO Use controllers
 *** TODO Create admin routes
 *** TODO Create a login system
 *** TODO xml/json/text response types
-*** TODO error handling
-**** nonexistent route
+*** TODO handle nonexistent routes
