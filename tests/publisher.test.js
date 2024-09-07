@@ -50,6 +50,20 @@ describe('Publishers API', () => {
     expect(response.body).toMatchObject(updatedPublisher);
   });
 
+  it('should partially update a publisher by ID', async () => {
+    const partialUpdate = {
+      location: 'New Location, USA'
+    };
+
+    const response = await request(app)
+      .patch('/publishers/1')
+      .send(partialUpdate);
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('id', 1);
+    expect(response.body.location).toBe(partialUpdate.location);
+  });
+
   it('should return 404 for a non-existent publisher ID', async () => {
     const response = await request(app).get('/publishers/999');
     expect(response.status).toBe(404);
@@ -65,6 +79,19 @@ describe('Publishers API', () => {
     const response = await request(app)
       .put('/publishers/999')
       .send(updatedPublisher);
+
+    expect(response.status).toBe(404);
+    expect(response.text).toBe('Publisher not found');
+  });
+
+  it('should return 404 when partially updating a non-existent publisher ID', async () => {
+    const partialUpdate = {
+      location: 'New Location, USA'
+    };
+
+    const response = await request(app)
+      .patch('/publishers/999')
+      .send(partialUpdate);
 
     expect(response.status).toBe(404);
     expect(response.text).toBe('Publisher not found');

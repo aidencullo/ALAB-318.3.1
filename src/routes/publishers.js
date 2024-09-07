@@ -44,6 +44,19 @@ router
     checkPublisher(req.body);
     Object.assign(publisher, req.body);
     res.json(publisher);
+  })
+  .patch((req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const publisher = publishers.find(publisher => publisher.id === id);
+
+    if (!publisher) {
+      return res.status(404).send('Publisher not found');
+    }
+
+    Object.assign(publisher, req.body);
+    checkPublisher(publisher);
+    res.json(publisher);
   });
+
 
 module.exports = router;

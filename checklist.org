@@ -5,7 +5,7 @@
 *** DONE Utilize reasonable data structuring practices.	5%
 *** DONE Create GET routes for all data that should be exposed to the client.	5%
 *** DONE "Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request."	5%
-*** TODO "Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request."	5%
+*** DONE "Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request."	5%
 *** TODO "Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request."	5%
 *** TODO "Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters.
 *** TODO Note: DO NOT use API keys; this makes it more difficult for instructors to grade finished projects efficiently."	5%
