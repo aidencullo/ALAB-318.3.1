@@ -58,6 +58,20 @@ describe('Books API', () => {
     expect(response.body).toMatchObject(updatedBook);
   });
 
+  it('should partially update a book by ID', async () => {
+    const partialUpdate = {
+      title: 'Partially Updated Title'
+    };
+
+    const response = await request(app)
+      .patch('/books/1')
+      .send(partialUpdate);
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('id', 1);
+    expect(response.body.title).toBe(partialUpdate.title);
+  });
+
   it('should return 404 for a non-existent book ID', async () => {
     const response = await request(app).get('/books/999');
     expect(response.status).toBe(404);
