@@ -37,3 +37,5 @@
 *** TODO Create admin routes
 *** TODO Create a login system
 *** TODO xml/json/text response types
+*** TODO error handling
+**** nonexistent route

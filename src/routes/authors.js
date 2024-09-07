@@ -44,6 +44,19 @@ router
     checkAuthor(req.body);
     Object.assign(author, req.body);
     res.json(author);
+  })
+  .patch((req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const author = authors.find(author => author.id === id);
+
+    if (!author) {
+      return res.status(404).send('Author not found');
+    }
+
+    Object.assign(author, req.body);
+    checkAuthor(author);
+    res.json(author);
   });
+
 
 module.exports = router;
