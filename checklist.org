@@ -1,4 +1,4 @@
-* Required Objectives [94%]
+* Required Objectives [100%]
 *** DONE Create and use at least two pieces of custom middleware.	5%
 *** DONE Create and use error-handling middleware.	5%
 *** DONE "Use at least three different data categories (e.g., users, posts, or comments)."	5%
@@ -12,7 +12,7 @@
 *** DONE Adhere to the guiding principles of REST.	10%
 *** DONE "Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine.
 *** DONE "Use simple CSS to style the rendered views.
-*** TODO Include a form within a rendered view that allows for interaction with your RESTful API.	3%
+*** DONE Include a form within a rendered view that allows for interaction with your RESTful API.	3%
 *** DONE Utilize reasonable code organization practices.	5%
 *** DONE "Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit)."	10%
 *** DONE Commit frequently to the git repository.	5%

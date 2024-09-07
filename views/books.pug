@@ -13,3 +13,24 @@ html
     ul
       each book in books
         li #{book.title} - #{book.author} - Published on: #{book.publishedDate}
+
+    // Form to create a new book
+    h2 Add a New Book
+    form(action='/books', method='POST')
+      div
+        label(for='title') Title:
+        input(type='text', id='title', name='title', required)
+      div
+        label(for='genre') Genre:
+        input(type='text', id='genre', name='genre', required)
+      div
+        label(for='authorId') Author ID:
+        input(type='text', id='authorId', name='authorId', required)
+      div
+        label(for='publisherId') Publisher ID:
+        input(type='text', id='publisherId', name='publisherId', required)
+      div
+        label(for='publishedDate') Published Date:
+        input(type='date', id='publishedDate', name='publishedDate', required)
+      div
+        button(type='submit') Add Book
