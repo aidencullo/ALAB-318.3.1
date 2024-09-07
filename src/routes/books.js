@@ -44,6 +44,18 @@ router
     checkBook(req.body);
     Object.assign(book, req.body);
     res.json(book);
+  })
+  .patch((req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const book = books.find(book => book.id === id);
+
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+
+    Object.assign(book, {...book, ...req.body});
+    checkBook(book);
+    res.json(book);
   });
 
 module.exports = router;
