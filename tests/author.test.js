@@ -54,6 +54,20 @@ describe('Authors API', () => {
     expect(response.body).toMatchObject(updatedAuthor);
   });
 
+  it('should partially update an author by ID', async () => {
+    const partialUpdate = {
+      name: 'Partially Updated Name'
+    };
+
+    const response = await request(app)
+      .patch('/authors/1')
+      .send(partialUpdate);
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('id', 1);
+    expect(response.body.name).toBe(partialUpdate.name);
+  });
+
   it('should return 404 for a non-existent author ID', async () => {
     const response = await request(app).get('/authors/999');
     expect(response.status).toBe(404);
@@ -70,6 +84,19 @@ describe('Authors API', () => {
     const response = await request(app)
       .put('/authors/999')
       .send(updatedAuthor);
+
+    expect(response.status).toBe(404);
+    expect(response.text).toBe('Author not found');
+  });
+
+  it('should return 404 when partially updating a non-existent author ID', async () => {
+    const partialUpdate = {
+      name: 'Partially Updated Name'
+    };
+
+    const response = await request(app)
+      .patch('/authors/999')
+      .send(partialUpdate);
 
     expect(response.status).toBe(404);
     expect(response.text).toBe('Author not found');
