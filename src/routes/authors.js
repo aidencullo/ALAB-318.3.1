@@ -56,7 +56,18 @@ router
     Object.assign(author, req.body);
     checkAuthor(author);
     res.json(author);
-  });
+  })
+  .delete((req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const author = authors.find(author => author.id === id);
+
+    if (!author) {
+      return res.status(404).send('Author not found');
+    }
+
+    authors.splice(authors.indexOf(author), 1)
+    res.status(204).send();
+  })
 
 
 module.exports = router;

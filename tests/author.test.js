@@ -68,6 +68,41 @@ describe('Authors API', () => {
     expect(response.body.name).toBe(partialUpdate.name);
   });
 
+  it('should delete an author by ID', async () => {
+    // First, create an author to delete
+    const newAuthor = {
+      name: 'Author to Delete',
+      birthdate: '1980-01-01',
+      nationality: 'Unknown'
+    };
+
+    const createResponse = await request(app)
+      .post('/authors')
+      .send(newAuthor);
+    
+    const authorId = createResponse.body.id; // Get the ID of the created author
+
+    // Delete the author
+    const deleteResponse = await request(app)
+      .delete(`/authors/${authorId}`);
+
+    expect(deleteResponse.status).toBe(204);
+    expect(deleteResponse.body).toEqual({}); // Ensure response body is empty
+
+    // Verify that the author was actually deleted
+    const getResponse = await request(app).get(`/authors/${authorId}`);
+    expect(getResponse.status).toBe(404);
+    expect(getResponse.text).toBe('Author not found');
+  });
+
+  it('should return 404 when deleting a non-existent author ID', async () => {
+    const response = await request(app)
+      .delete('/authors/999');
+    
+    expect(response.status).toBe(404);
+    expect(response.text).toBe('Author not found');
+  });
+
   it('should return 404 for a non-existent author ID', async () => {
     const response = await request(app).get('/authors/999');
     expect(response.status).toBe(404);

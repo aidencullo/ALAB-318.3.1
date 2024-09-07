@@ -64,6 +64,40 @@ describe('Publishers API', () => {
     expect(response.body.location).toBe(partialUpdate.location);
   });
 
+  it('should delete a publisher by ID', async () => {
+    // First, create a publisher to delete
+    const newPublisher = {
+      name: 'Publisher to Delete',
+      location: 'Delete Location'
+    };
+
+    const createResponse = await request(app)
+      .post('/publishers')
+      .send(newPublisher);
+    
+    const publisherId = createResponse.body.id; // Get the ID of the created publisher
+
+    // Delete the publisher
+    const deleteResponse = await request(app)
+      .delete(`/publishers/${publisherId}`);
+
+    expect(deleteResponse.status).toBe(204);
+    expect(deleteResponse.body).toEqual({}); // Ensure response body is empty
+
+    // Verify that the publisher was actually deleted
+    const getResponse = await request(app).get(`/publishers/${publisherId}`);
+    expect(getResponse.status).toBe(404);
+    expect(getResponse.text).toBe('Publisher not found');
+  });
+
+  it('should return 404 when deleting a non-existent publisher ID', async () => {
+    const response = await request(app)
+      .delete('/publishers/999');
+    
+    expect(response.status).toBe(404);
+    expect(response.text).toBe('Publisher not found');
+  });
+
   it('should return 404 for a non-existent publisher ID', async () => {
     const response = await request(app).get('/publishers/999');
     expect(response.status).toBe(404);
