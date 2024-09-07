@@ -56,6 +56,18 @@ router
     Object.assign(book, req.body);
     checkBook(book);
     res.json(book);
-  });
+  })
+  .delete((req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const book = books.find(book => book.id === id);
+
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+
+    books.splice(books.indexOf(book), 1);
+    res.status(204).send();
+  })
+
 
 module.exports = router;

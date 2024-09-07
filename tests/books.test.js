@@ -72,6 +72,43 @@ describe('Books API', () => {
     expect(response.body.title).toBe(partialUpdate.title);
   });
 
+  it('should delete a book by ID', async () => {
+    // First, create a book to delete
+    const newBook = {
+      title: 'Book to Delete',
+      authorId: 2,
+      publisherId: 2,
+      publishedDate: '2024-01-01',
+      genre: 'Non-Fiction'
+    };
+
+    const createResponse = await request(app)
+      .post('/books')
+      .send(newBook);
+    
+    const bookId = createResponse.body.id; // Get the ID of the created book
+
+    // Delete the book
+    const deleteResponse = await request(app)
+      .delete(`/books/${bookId}`);
+
+    expect(deleteResponse.status).toBe(204);
+    expect(deleteResponse.body).toEqual({}); // Ensure response body is empty
+
+    // Verify that the book was actually deleted
+    const getResponse = await request(app).get(`/books/${bookId}`);
+    expect(getResponse.status).toBe(404);
+    expect(getResponse.text).toBe('Book not found');
+  });
+
+  it('should return 404 when deleting a non-existent book ID', async () => {
+    const response = await request(app)
+      .delete('/books/999');
+    
+    expect(response.status).toBe(404);
+    expect(response.text).toBe('Book not found');
+  });
+
   it('should return 404 for a non-existent book ID', async () => {
     const response = await request(app).get('/books/999');
     expect(response.status).toBe(404);
