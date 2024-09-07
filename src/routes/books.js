@@ -12,7 +12,13 @@ const getNextId = () => {
 router
   .route('/')
   .get((req, res) => {
-    res.json(books);
+    let returnBooks = books;
+    if (req.query.genre) {
+      const genre = req.query.genre.toLowerCase();
+      const filteredBooks = books.filter(book => book.genre.toLowerCase() === genre);
+      returnBooks = filteredBooks;
+    }
+    return res.json(returnBooks);
   })
   .post((req, res) => {
     const newBook = req.body;
