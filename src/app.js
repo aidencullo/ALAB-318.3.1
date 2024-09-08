@@ -21,6 +21,10 @@ app.use('/authors', authors);
 app.use('/books', books);
 app.use('/publishers', publishers);
 
+app.use((req, res, next) => {
+  res.status(404).send("404 Not Found");
+});
+
 app.use(errorHandler);
 
 module.exports = app;
